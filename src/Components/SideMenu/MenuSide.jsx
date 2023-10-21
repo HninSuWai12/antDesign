@@ -8,12 +8,14 @@ import { Menu } from "antd";
 //import { useEffect, useState } from "react";
 import {  useNavigate } from "react-router-dom";
 
+
 function MenuSide() {
   const navigate = useNavigate();
 
   return (
     <div className="SideMenu" >
-      <Menu
+      <Menu className="SideMenuVertical"
+            mode="vertical"
           onClick={(item)=>{
            navigate(item.key);
           }}
@@ -22,6 +24,7 @@ function MenuSide() {
           label: "Dashboard",
           icon: <AppstoreOutlined/>,
           key:"/",
+
         },
         {
           label: "Inventory",
@@ -39,7 +42,7 @@ function MenuSide() {
           key:"/customers",
         },
       ]}
-      />
+      > </Menu>
 
 
     </div>

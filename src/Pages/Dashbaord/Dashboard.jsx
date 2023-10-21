@@ -6,11 +6,31 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import {Typography, Card, Space, Statistic, Table} from 'antd'
-import {getOrders} from "../../API/index.js";
+import {getOrders , getCustomers , getRevenue , getInventory } from "../../API/index.js";
 import {useEffect, useState} from "react";
 
 
 const Dashboard = () => {
+    const [orders, setOrders] = useState(0);
+    const [inventory , setInventory] = useState(0);
+    const [customers, setCustomers] = useState(0);
+    const [revenue, setRevenue] = useState(0);
+    useEffect(() => {
+        getOrders().then((res) => {
+            setOrders(res.total);
+            setRevenue(res.discountedTotal);
+        });
+        getInventory().then((res) => {
+            setInventory(res.total);
+        });
+        getRevenue().then((res) => {
+            setInventory(res.total);
+        });
+        getCustomers().then((res) => {
+            setCustomers(res.total);
+        })
+
+    }, []);
 
   return (
     <div>
@@ -25,7 +45,7 @@ const Dashboard = () => {
                         fontSize:24,
                         padding:8,
                     }}
-                />} title={"Orders"} value={123} />
+                />} title={"Orders"} value={orders} />
 
                 <DashboardCard icon={<ShoppingOutlined
                     style={{
@@ -37,7 +57,7 @@ const Dashboard = () => {
                     }}
                 />}
                                title={"Inventory"}
-                               value={123}
+                               value={inventory}
                 />
                 <DashboardCard icon={<UserOutlined
                     style={{
@@ -47,7 +67,7 @@ const Dashboard = () => {
                         fontSize:24,
                         padding:8,
                     }}
-                />} title={"Customer"} value={123} />
+                />} title={"Customer"} value={customers} />
                 <DashboardCard icon={<DollarCircleOutlined
                     style={{
                         backgroundColor: 'rgba(0,255,225,0.5',
@@ -56,7 +76,7 @@ const Dashboard = () => {
                         fontSize:24,
                         padding:8,
                     }}
-                />} title={"Revenue"} value={123} />
+                />} title={"Revenue"} value={revenue} />
             </Space>
             <Space>
                 <RecentOrders/>
