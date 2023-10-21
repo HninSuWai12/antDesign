@@ -12,7 +12,7 @@ function MenuSide() {
   const navigate = useNavigate();
 
   return (
-    <div className="SideMenu">
+    <div className="SideMenu" >
       <Menu
           onClick={(item)=>{
            navigate(item.key);
