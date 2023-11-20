@@ -1,3 +1,4 @@
+
 import {
   AppstoreOutlined,
   ShopOutlined,
@@ -7,14 +8,20 @@ import {
 import { Menu } from "antd";
 //import { useEffect, useState } from "react";
 import {  useNavigate } from "react-router-dom";
+import "../../src/sidemenu.css";
+
+
+
 
 
 function MenuSide() {
   const navigate = useNavigate();
 
   return (
-    <div className="SideMenu" >
-      <Menu className="SideMenuVertical"
+    <div className="SideMenu " >
+      <Menu className="SideMenuVertical" 
+       
+
             mode="vertical"
           onClick={(item)=>{
            navigate(item.key);

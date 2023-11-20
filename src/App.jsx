@@ -1,8 +1,9 @@
 import { Space } from "antd";
 import "./App.css";
  import HeaderApp from "./Components/AppHeader/HeaderApp";
- import MenuSide from "./Components/SideMenu/MenuSide";
- import ContentPage from "./Components/PageContent/ContentPage";
+//  import MenuSide from "./Components/SideMenu/MenuSide";
+import MenuSide from "./Components/MenuSide";
+import ContentPage from "./Components/PageContent/ContentPage";
 
 
 function App() {
